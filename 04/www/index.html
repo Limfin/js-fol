@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>04</title>
+</head>
+
+<body>
+	<h1>Типы данных JS</h1>
+	<h3>Null String Undefined Boolean Number BigInt Symbol Object(Function)</h3>
+
+	<h4>Undefined</h4>
+	<p>
+		let var01; <span>//undefined</span> <br>
+		console.log(typeof var01); <span>//вывод типа переменной</span> <br>
+	</p>
+
+	<h4>Null</h4>
+	<p>
+		let var02 = null; <span>//null</span> <br>
+		console.log(typeof var02); <span>//тип object</span> <br>
+		let block = document.querySelector('.block'); <span> //переменная определена, но блока с классом 'block' не
+			существует,поэтому значение будет null</span> <br>
+		console.log(block); <span>//null </span>
+	</p>
+
+	<h4>Boolean</h4>
+	<p>
+		let var03 = true; <span>//boolean</span> <br>
+		let var04 = false; <span>//boolean</span> <br>
+		console.log(typeof var03,typeof var04);
+	</p>
+
+	<h4>Number</h4>
+	<p>
+		let number = 35; <span>//number</span> <br>
+		console.log(typeof number);<br>
+		let infinity = 58 / 0; <span>//infinity</span> <br>
+		console.log(typeof infinity); <span>//number</span> <br>
+		console.log(infinity); <span>//infinity</span> <br>
+		let numberError = 'фрилансер' / 3; <span>//ошибка в вычислениях, например строка делится на число</span> <br>
+		console.log(typeof numberError); <span>//number</span> <br>
+		console.log(numberError); <span> //NaN </span> <br>
+	</p>
+
+	<h4>Bigint</h4>
+	<p>
+		const bigInteger = 12345678901234567890123456789n; <span>//в JS тип данных "number" не может содержать числа
+			больше чем
+			9007199254740991, или меньше, чем -9007199254740991</span> <br>
+		console.log(typeof bigInteger); <span>//bigint</span> <br>
+	</p>
+
+	<h4>String</h4>
+	<p>
+		let user = 'Фрилансер по жизни'; <span>//string</span> <br>
+		console.log(typeof user);<br>
+	</p>
+
+	<h4>Object</h4>
+	<p>
+		let userInfo = { <br>
+		name:'Фрилансер по жизни', <br>
+		age: 25 <br>
+		} <br>
+		console.log(typeof userInfo); <span>//object</span> <br>
+		console.log(userInfo);
+	</p>
+	<h4>Symbol</h4>
+	<p>
+		let id = Symbol('id'); <br>
+		console.log(typeof id); <span>//symbol</span> <br>
+		console.log(id); <span>//Symbol(id)</span> <br>
+	</p>
+
+	<h3>Преобразование типов</h3>
+	<h4>Строковое преобразование </h4>
+	<p>
+		let userAge = 58; <br>
+		console.log(typeof userAge); <span>//number</span> <br>
+		console.log(userAge); <span>//58</span> <br><br>
+
+		userAge = String(userAge); <span>//преобразование в строку</span> <br>
+		console.log(typeof userAge); <span>//string</span> <br>
+		console.log(userAge); <span>//58</span> <br>
+	</p>
+	<p>
+		let userTrue = true; <br>
+		console.log(typeof userTrue); <span>//boolean </span> <br>
+		console.log(userTrue); <span>//true</span> <br><br>
+
+		userTrue = String(userTrue); <span>//преобразование в строку</span> <br>
+		console.log(typeof userTrue); <span>//string </span> <br>
+		console.log(userTrue); <span>//true</span> <br>
+	</p>
+	<h3>Численное преобразование</h3>
+	<p>
+		let userName = 'Vasya'; <br>
+		console.log(typeof userName); <span>//string</span> <br>
+		console.log(userName); <span>//Vasya</span> <br><br>
+
+		userName = Number(userName); <span>//преобразование в число</span> <br>
+		console.log(typeof userName); <span>//number</span> <br>
+		console.log(userName); <span>//NaN</span> <br>
+	</p>
+	<h3>Логическое преобразование</h3>
+	<p>
+		let userNumb = 0; <br>
+		console.log(typeof userNumb); <span>//number</span> <br>
+		console.log(userNumb); <span>//0</span> <br><br>
+
+		userNumb = Boolean(userNumb); <span>//логическое преобразование</span><br>
+		console.log(typeof userNumb); <span>//boolean</span> <br>
+		console.log(userNumb); <span>//false</span> <br>
+	</p>
+
+
+
+
+
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>

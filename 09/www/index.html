@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>09</title>
+</head>
+
+<body>
+	<h1>
+		Объекты в JS<br>
+		Синтаксис, создание, изменение.
+	</h1>
+
+	<h3>Синтаксис</h3>
+	<p>
+		let userInfo1 = new Object(); <span>//синтаксис "конструктора объекта"</span> <br>
+		let userInfo2 = {}; <span>//синтаксис "литерала объекта"</span> <br>
+	</p>
+
+	<h4>Свойства объектов. Ключ + значение</h4>
+	<p>
+		let userInfo = { <br>
+		name: 'Vasilii', <span>//свойство объекта</span> <br>
+		age: 30, <span>//последняя (висячая) запятая</span> <br>
+		}; <br>
+		<br>
+		console.log(userInfo); <span>//вызов всего объект </span><br>
+		console.log(userInfo.name); <span>//вызов значения объекта</span> <br>
+	</p>
+
+	<h4>Имена свойств</h4>
+	<p>
+		<b>Имя из двух и больше слов</b> <br>
+		let userInfo3 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		'likes JS': true, <br>
+		}; <br>
+		console.log(userInfo3.name); <br>
+		console.log(userInfo3['likes JS']); <span>//true</span> <br>
+	</p>
+
+	<h4>Вычисляемое либо передаваемое имя</h4>
+	<p>
+		<b>Вычисляемое имя</b> <br>
+		let firstPart = 'likes'; <br>
+		let userInfo4 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		[firstPart + ' JS']: true, <br>
+		}; <br>
+		console.log(userInfo4['likes JS']); <span>//true</span> <br>
+	</p>
+
+	<p>
+		<b>Передаем имя</b> <br>
+		let firstPart2 = 'likes'; <br>
+		let userInfo5 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		[firstPart2]: true, <br>
+		}; <br>
+		console.log(userInfo5[firstPart2]); <span>//true</span> <br>
+	</p>
+
+	<h4>Зарезервированные слова в именах</h4>
+	<p>
+		let userInfo6 = { <br>
+		let: 'Fedor', <span>//можно использовать зарезервированные слова в именах свойств объекта</span> <br>
+		for: 30, <br>
+		}; <br>
+		console.log(userInfo6.let); <span>//Fedor</span> <br>
+		console.log(userInfo6.for); <span>//30</span> <br>
+	</p>
+
+	<h3>Тип данных Symbol</h3>
+	<p>
+		<span>Создаем символ id с описанием (именем) "id"</span> <br>
+		let id = Symbol('id'); <br>
+		let userInfo7 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		[id]: 'Некое значение', <br>
+		}; <br>
+		console.log(userInfo7); <span>//{name: "Fedor", age: 30, Symbol(id): "Некое значение"}</span> <br>
+		<br>
+		<span>Основное применение символов:</span> <br>
+		<span>1. "Скрытые" свойства объектов</span> <br>
+		<span> Символьное свойтсво не появится в for..in </span><br>
+		<span>2. Использование системных символов</span> <br>
+		<span> Symbol.iterator, Symbol.toPrimitive и т.д.</span> <br>
+	</p>
+
+	<h4>Вложенность</h4>
+	<p>
+		let userInfo8 = { <br>
+		name: 'Fedor', <br>
+		age:30, <br>
+		address: { <br>
+		city: 'Ufa', <br>
+		street: 'Lenina', <br>
+		}, <br>
+		}; <br>
+		console.log(userInfo8); <br>
+		console.log(userInfo8.address); <span>//{city: "Ufa", street: "Lenina"}</span> <br>
+		console.log(userInfo8.address.city); <span>//Ufa</span> <br>
+	</p>
+
+	<h4>Свойство из переменной</h4>
+	<p>
+		function makeUserInfo(name, age) { <br>
+		return { <br>
+		name: name, <br>
+		age: age, <br>
+		<span>//...другие свойства</span> <br>
+		}; <br>
+		} <br>
+		let user = makeUserInfo('Fedor', 40); <br>
+		console.log(user); <span>//{name: "Fedor", age: 40}</span> <br>
+	</p>
+
+	<h3>Изменение объекта</h3>
+	<h4>Добавление свойства</h4>
+	<p>
+		let userInfo9 = { <br>
+		name: 'Fedor', <br>
+		}; <br>
+		console.log(userInfo9); <span>//{name: "Fedor"}</span> <br>
+		<br>
+		userInfo9.age = 30; <br>
+		console.log(userInfo9); <span>//{name: "Fedor", age: 30}</span> <br>
+		<br>
+		userInfo9['likes JS'] = true; <br>
+		console.log(userInfo9); <span>//{name: "Fedor", age: 30, likes JS: true}</span> <br>
+		<br>
+		userInfo9.address = { <br>
+		city: 'Moscow', <br>
+		street: 'Lenina', <br>
+		}; <br>
+		console.log(userInfo9); <span>//{name: "Fedor", age: 30, likes JS: true, address: {…}}</span> <br>
+	</p>
+
+	<h4>Удаление свойства</h4>
+	<p>
+		let userInfo10 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		'likes JS': true, <br>
+		}; <br>
+		console.log(userInfo10); <span>//{name: "Fedor", age: 30, likes JS: true}</span> <br>
+		<br>
+		delete userInfo10.age; <br>
+		console.log(userInfo10); <span>//{name: "Fedor", likes JS: true}</span> <br>
+		<br>
+		delete userInfo10['likes JS']; <br>
+		console.log(userInfo10); <span>//{name: "Fedor"}</span> <br>
+	</p>
+
+	<h4>Изменение свойства</h4>
+	<p>
+		let userInfo11 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		}; <br>
+		console.log(userInfo11); <span>//{name: "Fedor", age: 30}</span> <br>
+		<br>
+		userInfo11.age = 18 <br>
+		console.log(userInfo11); <span>//{name: "Fedor", age: 18}</span> <br>
+	</p>
+
+	<h4>Копирование объекта</h4>
+	<p>
+		<span>//При копировании обекта в другую переменную сам объект не дублируется, а копируется только ссылка на
+			него</span> <br>
+		let userInfo12 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		}; <br>
+		console.log(userInfo12); <span>//{name: "Fedor", age: 30}</span> <br>
+		<br>
+		let user1 = userInfo12; <br>
+		console.log(user1); <span>//{name: "Fedor", age: 30}</span> <br>
+		<br>
+		user1.age = 18; <br>
+		console.log(userInfo12); <span>//{name: "Fedor", age: 18}</span> <br>
+	</p>
+
+
+	<h4>Дублирование объекта</h4>
+	<p>
+		<b>Синтаксис</b> <br>
+		<span>Object.assign(куда(объект), что(свойство №1), что(свойство №2), ...);</span> <br>
+		<br>
+		let userInfo13 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		} <br>
+		<br>
+		let user2 = Object.assign({}, userInfo13); <br>
+		<br>
+		user2.age = 18; <br>
+		console.log(userInfo13); <span>//{name: "Fedor", age: 30}</span> <br>
+		console.log(user2); <span>//{name: "Fedor", age: 18}</span> <br>
+	</p>
+
+	<h3>Проверка существования свойства</h3>
+	<p>
+		let userInfo14 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		} <br>
+		<br>
+		if (userInfo14.age) { <span>//true или false, если будет undefined, то вернется false</span> <br>
+		console.log(userInfo14.age); <br>
+		} <br>
+	</p>
+
+	<h3>Опциональная цепочка</h3>
+	<p>
+		let userInfo15 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		address: { <br>
+		city: 'Moscow', <br>
+		street: 'Lenina', <br>
+		} <br>
+		} <br>
+		console.log(userInfo15?.address?.street); <span>//если какого-то свойства не будет, то в консоли выведется
+			undefined</span> <br>
+	</p>
+
+	<h3>Оператор 'in'</h3>
+	<p>
+		let userInfo16 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		address: { <br>
+		city: 'Moscow', <br>
+		street: 'Lenina', <br>
+		} <br>
+		} <br>
+		if ('name' in userInfo16) { <br>
+		console.log(userInfo16.name); <br>
+		} <br>
+
+		<span>
+			в большинстве случаев сработает сравнение с undefined. <br>
+			либо опциональная цепочка ?. <br>
+			но есть особый случай, когда свойство существует, но содержит значение undefined. <br>
+			В этом случае необходимо использовать "in" <br>
+		</span>
+
+		let userInfo17 = { <br>
+		name: undefined, <br>
+		} <br>
+		if (userInfo17.name) { <span>//false вернется</span> <br>
+		console.log(userInfo17.name) <span>//в консоль ничего не выведется</span> <br>
+		} <br>
+		<br>
+		if ('name' in userInfo17) { <span>//true вернется</span> <br>
+		console.log(userInfo17.name) <span>//в консоль выведется undefined</span> <br>
+		} <br>
+	</p>
+
+	<h3>Цикл for...in</h3>
+	<p>
+		for (let key in object) { <br>
+		<span>//тело цикла выполняется для каждого свойства объекта</span> <br>
+		} <br>
+		<br>
+		let userInfo18 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		address: { <br>
+		city: 'Moscow', <br>
+		street: 'Lenina', <br>
+		} <br>
+		} <br>
+		<br>
+		for (let key in userInfo18) { <br>
+		<span>//ключи</span> <br>
+		console.log(key); <span>//name, age, address</span> <br>
+		<span>//значения ключей</span> <br>
+		console.log(userInfo18[key]); <span>//Fedor, 30, Object {}</span> <br>
+		} <br>
+		<br>
+		for (let key in userInfo18.address) { <br>
+		<span>//ключи</span> <br>
+		console.log(key); <span>//city, street</span> <br>
+		<span>//значения ключей</span> <br>
+		console.log(userInfo18.address[key]); <span>//Moscow, Lenina</span> <br>
+		} <br>
+	</p>
+
+	<h3>Методы объекта</h3>
+
+	<p>
+		let userInfo19 = { <br>
+		name: 'Fedor', <br>
+		age: 30, <br>
+		address: { <br>
+		city: 'Moscow', <br>
+		street: 'Lenina', <br>
+		}, <br>
+		showInfo: function () { <br>
+		console.log(`${userInfo19.name}, ${userInfo19.age} лет. Адрес: г.${userInfo19.address.city}`) <br>
+		} <br>
+		} <br>
+		userInfo19.showInfo(); <span>//Fedor, 30 лет. Адрес: г.Moscow</span><br>
+	</p>
+
+	<h3>Использование "this"</h3>
+	<p>
+		let userInfo20 = { <br>
+		name: 'Fedor', <br>
+		age: 40, <br>
+		address: { <br>
+		city: 'Ufa', <br>
+		street: 'Lenina', <br>
+		}, <br>
+		showInfo: function () { <br>
+		console.log(`${this.name}, ${this.age} лет. Адрес: г.${this.address.city}`) <br>
+		} <br>
+		} <br>
+		userInfo20.showInfo(); <span>//Fedor, 40 лет. Адрес: г.Ufa</span> <br>
+	</p>
+
+	<h3>Функция-конструктор</h3> 
+<p>
+	<b>
+		Функции-конструкторы являются обычными функциями. <br>
+		Но есть два правила: <br>
+		1. Имя функции-конструктора должно начинаться с большой буквы. <br>
+		2. Функция-конструктор должна вызываться при помощи оператора "new" <br>
+	</b> <br>
+	function UserInfo(name) { <br>
+		<span>//this = {}; Создается пустой объект (неявно)</span> <br>
+	 <br>
+		this.name = name; <br>
+		this.age = 30; <br>
+	 <br>
+		<span>//return this; Возвращается объект (неявно)</span> <br>
+	} <br>
+	console.log(new UserInfo('Petr')); <span>//UserInfo {name: "Petr", age: 30}</span> <br>
+	console.log(new UserInfo('Lena')); <span>//UserInfo {name: "Lena", age: 30}</span> <br>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="js/script.js"></script>
+	<script src="js/dz.js"></script>
+</body>
+
+</html>

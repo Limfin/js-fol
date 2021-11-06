@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>08</title>
+</head>
+
+<body>
+	<h1>
+		Функциии в JS<br>
+		Стрелочные функции, рекурсия, планирование: setTimeout и setInterval
+	</h1>
+
+
+	<h3>Объявление функции</h3>
+	<p>
+		function showMessage() { <br>
+		console.log('Message'); <br>
+		} <br>
+		showMessage(); <span>//вызов функции</span>
+	</p>
+
+	<h3>Параметры (аргументы)</h3>
+	<p>
+		function calcSumm(numOne, numTwo) { <br>
+		console.log(`Переменная numOne: ${numOne}`); <br>
+		console.log(`Переменная numTwo: ${numTwo}`); <br>
+		<br>
+		let numSumm = numOne + numTwo; <br>
+		console.log(`Сумма: ${numSumm}`); <br>
+		} <br>
+		calcSumm(1,2); <span>// Сумма: 3</span> <br>
+	</p>
+
+	<h3>Функции-колбэки</h3>
+	<p>
+		function calcSumm1(numOne, numTwo, more, less) { <br>
+		let numSumm = numOne + numTwo; <br>
+		<br>
+		if (numSumm > 3) { <br>
+		more(); <br>
+		} else { <br>
+		less(); <br>
+		} <br>
+		} <br>
+		function showMoreMessage() { <br>
+		console.log('Больше чем 3'); <br>
+		} <br>
+		function showLessMessage() { <br>
+		console.log('Меньше чем 3'); <br>
+		} <br>
+		calcSumm1(1, 5, showMoreMessage, showLessMessage); <span>//сработает условие more() и вызовется функция
+			showMoreMessage()</span> <br>
+	</p>
+
+	<h3>Возврат результата функции</h3>
+	<p>
+		function calcSumm3(numOne, numTwo) { <br>
+		let numSumm = numOne + numTwo; <br>
+		<br>
+		<span>//возврат</span> <br>
+		return numSumm; <br>
+		<br>
+		<span>//дальше код не выполняется</span> <br>
+		} <br>
+		let funcResult = calcSumm3(5, 3); <br>
+		console.log(`Результат функции calcSumm3: ${funcResult}`); <br>
+	</p>
+
+	<h3>Рекурсия (функция вызывает саму себя)</h3>
+	<p>
+		function getSumm(numOne, numTwo) { <br>
+		let numSumm = calcSumm4(numOne, numTwo); <br>
+		<br>
+		console.log(numSumm); <br>
+		} <br>
+		function calcSumm4(numOne, numTwo) { <br>
+		return numOne + numTwo; <br>
+		} <br>
+		getSumm(2, 4); <br>
+	</p>
+
+	<h4>Пример</h4>
+	<p>
+		function calcSumm5(numOne, numTwo) { <br>
+		let result = 1; <br>
+		<span>//умножаем result на numOne numTwo раз в цикле</span> <br>
+		for (let i = 0; i < numTwo; i++) { <br>
+			result *= numOne; <br>
+			} <br>
+			return result; <br>
+			} <br>
+			console.log(calcSumm5(3, 4)); <span>//81</span> <br>
+	</p>
+
+	<h4>Эта же функция записанная при помощи рекурсии</h4>
+	<p>
+		function calcSumm6(numOne, numTwo) { <br>
+		if (numTwo === 1) { <br>
+		return numOne; <br>
+		} else { <br>
+		return numOne * calcSumm6(numOne, numTwo - 1); <br>
+		} <br>
+		} <br>
+		console.log(calcSumm6(3, 4)); <span>//81</span> <br>
+	</p>
+
+	<h3>Функциональное выражение (Function Expression)</h3>
+	<p>
+		let showMessage1 = function () { <br>
+		console.log('Hello!'); <br>
+		}; <br>
+		showMessage1(); <span>//в отличие от обычного объявления функции, вызвать функцию при использовании
+			"Функционального выражения" можно только после ее объявления</span> <br>
+	</p>
+
+	<h4>Стрелочная функция (arrow function), болле простой способ записи функционального выражения</h4>
+	<p>let имя переменной = (параметр, ...параметр) => выражение</p>
+
+	<p>
+		<b>Однострочная стрелочная функция</b> <br>
+		let getMessage = (text, name1) => text + ', ' + name1 + '!'; <br>
+		console.log(getMessage('Привет', 'Вася')); <br>
+	</p>
+
+	<p>
+		<b>Многострочная стрелочная функция</b> <br>
+		let getMessage1 = (text, name1) => { <br>
+		let message = text + ', ' + name1 + '!'; <br>
+		return message; <br>
+		}; <br>
+		console.log(getMessage1('Привет', 'Федя')); <br>
+	</p>
+
+	<h3>Планирование setTimeout setInterval</h3>
+	<span>
+		Чтобы реализовать планирование существуют два метода: <br>
+		1. setTimeout позволяет вызвать функцию один раз через определенный интервал времени <br>
+		2. setInterval позволяет вызывать функцию регулярно, повторяя вызов через определенный интервал времени. <br>
+	</span> <br>
+
+	<p>
+		setTimeout(функция или код, задержка, параметр, ...параметр); <br>
+		setInterval(функция или код, задержка, параметр, ...параметр);
+	</p>
+	<p>
+		function showMessage2(text, name1) { <br>
+		console.log(`, `); <br>
+		} <br>
+		setTimeout(showMessage2, 3000, 'Hello', 'Vasilii'); <span>//сообщение выведется через 3сек</span> <br>
+		setInterval(showMessage2, 1000, 'Hello', 'Fedor'); <span>//сообщение будет выводится каждую 1секунду</span>
+	</p>
+
+	<h4>clearTimeout остановка функции при достижении определенного условия</h4>
+	<p>
+		function showNum(num) { <br>
+		console.log(num); <br>
+		let timeId = setTimeout(showNum, 1000, ++num); <br>
+		if (num === 6) { <br>
+		clearTimeout(timeId); <br>
+		} <br>
+		} <br>
+		setTimeout(showNum, 1000, 1); <br>
+	</p>
+
+	<h4>clearInterval остановка функции при достижении определенного условия</h4>
+	<p>
+		let result1 = 0; <br>
+		function showNum2(num) { <br>
+		result1 += num; <br>
+		console.log(result1); <br>
+		if (result1 === 5) { <br>
+		clearInterval(timeId1); <br>
+		} <br>
+		} <br>
+		let timeId1 = setInterval(showNum2, 1000, 1); <br>
+	</p>
+
+
+
+	<script src="js/script.js"></script>
+	<script src="js/dz4.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>05</title>
+</head>
+
+<body>
+	<h1>Операторы JS</h1>
+	<h3>let x;</h3>
+
+	<h4>Сложение +</h4>
+	<p>
+		x = 5 + 8; <br>
+		console.log(`Результат сложения: ${x}`); <span>//Результат сложения: 13</span>
+	</p>
+
+	<h4>Вычитание</h4>
+	<p>
+		x = 9 - 5; <br>
+		console.log(`Результат вычитания: ${x}`); <span>//Результат вычитания: 4</span>
+	</p>
+
+	<h4>Умножение</h4>
+	<p>
+		x = 2 * 3; <br>
+		console.log(`Результат умножение: ${x}`); <span>//Результат умножение: 6</span>
+	</p>
+
+	<h4>Деление</h4>
+	<p>
+		x = 10 / 2; <br>
+		console.log(`Результат деления: ${x}`); <span>//Результат деления: 5</span>
+	</p>
+
+	<h4>Взятие остатка от деления %</h4>
+	<p>
+		x = 11 % 3; <br>
+		console.log(`Результат взятие остатка от деления: ${x}`); <span>//Результат взятие остатка от деления: 2</span>
+		<br>
+		<span>//Проверка: 11=3*3(неполное частное от деления)+2(остаток)</span>
+	</p>
+
+	<h4>Возведение в степень **</h4>
+	<p>
+		x = 5 ** 3; <br>
+		console.log(`Результат возведение в степень: ${x}`); <span>//Результат возведение в степень: 125</span> <br>
+		<span>//Число 5 умноженное на себя 3 раза. 5*5*5 = 125</span>
+	</p>
+
+	<h4>Операторы сравнения</h4>
+	<p>
+		Больше: a > b <br>
+		Меньше: a < b <br>
+			Больше или раво: a >= b <br>
+			Меньше или равно: a <= b <br>
+				Равно: a == b <br>
+				Не равно: a != b <br>
+				Строгое равно: a === b <br>
+				Строгое не равно: a !== b <br>
+	</p>
+
+
+
+	<h3>Логические операторы</h3>
+	<h4>Оператор || (ИЛИ)</h4>
+	<p>
+		<b>Булевые значения</b><br>
+		console.log(true || false) <span>//true</span> <br>
+		console.log(false || true) <span>//true</span> <br>
+		console.log(true || true) <span>//true</span> <br>
+		console.log(false || false) <span>//false</span> <br>
+	</p>
+
+	<p>
+		<b>Разные типы</b><br>
+		<b>Возвращает первое истинное значение или последнее ложное</b><br>
+		console.log(1 || 0); <span>//true - 1</span> <br>
+		console.log(true || 'Фрилансер'); <span>//true - true</span> <br>
+		console.log(null || 58); <span>//true - 58</span> <br>
+		console.log(null || 'фрилансер' || 0); <span>//true - фрилансер</span> <br>
+		console.log(undefined || '' || null || 0); <span>//fasle - 0</span> <br>
+	</p>
+
+	<p>
+		<b>Присвоение значения в переменную</b> <br>
+		let userName = ''; <br>
+		let userNickName = 'Фрилансер'; <br>
+		let user = userName || userNickName || 'Без имени'; <br>
+		console.log(user); <span>//Фрилансер</span> <br>
+	</p>
+
+	<p>
+		<b>Сокращенное вычисление. Условие</b> <br>
+		let admins = 0; <br>
+		let users = 5; <br>
+		admins > users || users++; <span>//первое значение будет ложно, поэтому увеличиваем второе на 1</span> <br>
+		console.log(users); <span>//6</span> <br>
+	</p>
+
+	<h4>Оператор && (И)</h4>
+	<p>
+		<b>Булевые значения</b><br>
+		console.log(true || false) <span>//fasle</span> <br>
+		console.log(false || true) <span>//fasle</span> <br>
+		console.log(true || true) <span>//true</span> <br>
+		console.log(false || false) <span>//false</span> <br>
+	</p>
+	<p>
+		<b>Разные типы</b> <br>
+		<b>Возвращает последнее истинное значение или первое ложное</b> <br>
+		console.log('Фрилансер' && 0 && 2 && 3); <span>//false - 0</span> <br>
+		console.log(1 && 2 && null && 3); <span>//fasle - null</span> <br>
+		console.log('15' && '42'); <span>//true - 42</span> <br>
+	</p>
+
+	<p>
+		<b>Приоритет оператора &&(И) больше чем оператора ||(ИЛИ)</b> <br>
+		console.log(1 && 0 || 2 && 1);<span>//1</span>
+	</p>
+
+	<h4>Оператор ! (НЕ)</h4>
+	<p>
+		<b>Булевые значения</b> <br>
+		console.log(!true); <span>//false</span>
+	</p>
+
+	<p>
+		<b>Разные типы </b> <br>
+		console.log(!null); <span>//true</span> <br>
+		console.log(!1); <span>//false</span> <br>
+		console.log(!''); <span>//true</span> <br>
+		console.log(!'фрилансер'); <span>//false</span> <br>
+	</p>
+
+	<p>
+		<b>У оператора !(НЕ) наивысший приоритет и он выполнится первее &&(И) и ||(ИЛИ)</b> <br>
+		console.log(!true && 58 || 18 && !1); <span>//false</span>
+	</p>
+
+	<h4>Оператор сравнения с null (??)</h4>
+<p>
+	<b>Оператор ?? возвращает первый аргумент, если он не null / undefined,  если же первый аргумент равен null / undefined, то вернется второй</b> <br>
+	let name1; <br>
+	console.log(name1 ?? 'Без имени'); <span>//Без имени</span> <br>
+</p>
+
+
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>

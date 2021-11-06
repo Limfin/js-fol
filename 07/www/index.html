@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>07</title>
+</head>
+
+<body>
+	<h1>
+		Циклы FOR и WHILE в JS <br>
+		Директивы break и continue
+	</h1>
+
+	<h3>Цикл WHILE</h3>
+	<p>
+		let num = 0; <br>
+		while (num < 5) { <br>
+			console.log(num); <span>//0 1 2 3 4 ;</span> <br>
+			num++ <br>
+			} <br>
+	</p>
+
+	<h4>Конструкция DO...WHILE</h4>
+	<p>
+		let num1 = 0; <br>
+		do { <br>
+		console.log(num1); <br>
+		num1++; <br>
+		} while (num1 < 5); <br>
+	</p>
+
+	<h3>Цикл FOR</h3>
+	<p>
+		for (let num2 = 0; num2 < 5; num2++) { <br>
+			console.log(num2); <span>//0 1 2 3 4</span> <br>
+			}; <span>//первый способ записать цикл</span> <br>
+			let num2 = 0; <br><br>
+			for (;num2 < 5; num2++) { <br>
+				console.log(num2); <span>//0 1 2 3 4</span> <br>
+				}; <span>//второй способ записать цикл</span> <br><br>
+				for (let num2 = 0; num2 < 5;) { <br>
+					console.log(num2); <span>//0 1 2 3 4</span> <br>
+					num2++ <br>
+					}; <span>//третий способ записать цикл</span> <br>
+	</p>
+	<h4>Директива break</h4>
+	<p>
+		let num3 = 0; <br>
+		for (; num3 < 5; num3++) { <br>
+			console.log(num3); <span>//0 1 2</span> <br>
+			if (num3 == 2) break; <span>//досрочное прекращение цикла, когда num3 становится равно 2</span> <br>
+			} <br>
+			console.log(`Работа окончена, num3 = ${num3}`); <span>//Работа окончена, num3 = 2</span>
+	</p>
+	<h4>Директива continue</h4>
+	<p>
+		let num4 = 0; <br>
+		for (; num4 < 5; num4++) { <br>
+			if (num4 == 2) continue; <span>//пропускает значение 2 и переходит к следующей итерации цикла</span> <br>
+			console.log(num4); <span>//0 1 3 4</span> <br>
+			}
+	</p>
+	<h4>Метки</h4>
+	<p>
+		firstFor: for (let num5 = 0; num5 < 5; num5++) { <span>//firstFor это метка для первого цикла</span> <br>
+			for (let size = 0; size < 3; size++) { <br>
+				if (size == 2) { <br>
+				break firstFor; <span>//с помощью метки firstFor первый цикл прекращается при выполнении условия во втором
+					цикле</span> <br>
+				} <br>
+				console.log(size); <span>//0 1</span> <br>
+				} <br>
+				}
+	</p>
+
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>

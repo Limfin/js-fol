@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<title>06</title>
+</head>
+
+<body>
+	<h1>
+		IF ELSE в JS. <br>
+		Условный оператор "?"
+	</h1>
+
+	<h3>Синтаксис</h3>
+	<p>
+		let message = 'Привет, фрилансер!'; <br>
+
+		if (2 > 1) { <br>
+		console.log(message); <span>//выведется сообщение "Привет, фрилансер!", т.к. условие true</span> <br>
+		} <br>
+		<br>
+		let first = 5; <br>
+		let second = 10; <br>
+		if (first === second) { <br>
+		console.log(message); <span>//ничего не выведется, т.к. условие false</span> <br>
+		}
+	</p>
+
+	<h3>Блоки ELSE и ELSE IF</h3>
+	<p>
+		let number = 5; <br>
+		<br>
+		if (number > 50) { <br>
+		console.log('5 больше 50'); <br>
+		} else if (number > 30) { <br>
+		console.log ('5 больше 30'); <br>
+		} else if (number > 10) { <br>
+		console.log('5 больше 10'); <br>
+		} else if (number > 1) { <br>
+		console.log('5 больше 1'); <br>
+		} else { <br>
+		console.log('Условие не выполнено'); <br>
+		}
+	</p>
+
+	<h3>Условный оператор "?"</h3>
+	<p>
+		let message1 = 'Hello'; <br>
+		let messageEnd; <br>
+		<br>
+		if (5 > 1) { <br>
+		messageEnd = ', Вася!'; <br>
+		} else { <br>
+		messageEnd = ', Оля!'; <br>
+		} <br>
+		message1 += messageEnd; <br>
+		console.log(message1); <br>
+		<br>
+		let message2 = 'Hello'; <br>
+		messageEnd = (5 > 1) ? ', Вася!' : ', Оля!'; <span>//тоже самое условие только записанное с помощью условного оператора "?"</span> <br>
+		message2 += messageEnd; <br>
+		console.log(message1); <br>
+	</p>
+
+
+
+
+
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>
